@@ -1,8 +1,9 @@
-import { get } from "@/services/api-handler";
+import { get, post } from "@/services/api-handler";
 
-async function login(parmeters: any) {
+async function login(args: any) {
     try {
-        const resposta = await get('Test/Test')
+        const resposta = await post('Usuario/Login', args)
+        console.log(resposta)
         if (resposta.status == 200) {
             console.log("deu tudo certo poga!");
             return resposta

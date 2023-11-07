@@ -20,6 +20,7 @@ async function get(
             throw new Error(response.data?.errors)
         }
         if (callbackOnSuccess != undefined) callbackOnSuccess()
+        console.log("get", response)
         return response
     } catch (error: any) {
         if (callbackOnError != undefined) callbackOnError()
@@ -52,7 +53,8 @@ async function post(
             throw new Error(response.data?.errors)
         }
         if (callbackOnSuccess != undefined) callbackOnSuccess()
-        return response.data;
+        console.log("post", response)
+        return response;
     } catch (error: any) {
         if (callbackOnError != undefined) callbackOnError()
         const err = error as AxiosError
