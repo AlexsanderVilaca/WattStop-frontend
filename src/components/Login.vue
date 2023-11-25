@@ -43,7 +43,7 @@
                             </v-row>
                             <v-btn 
                                 color="blue" dark block tile
-                                @click.prevent="loginUser"
+                                @click="loginUser()"
                             >Log in
                             </v-btn>
                             </v-col>
@@ -86,20 +86,35 @@
                             </v-col>
                             </v-row>
                             <v-text-field
-                            label="Email"
-                            outlined
-                            dense
-                            color="blue"
-                            autocomplete="false"
+                                label="Nome Completo"
+                                outlined
+                                dense
+                                color="blue"
+                                autocomplete="false"
+                                type="password"
                             />
                             <v-text-field
-                            label="Password"
-                            outlined
-                            dense
-                            color="blue"
-                            autocomplete="false"
-                            type="password"
-                            
+                                label="Email"
+                                outlined
+                                dense
+                                color="blue"
+                                autocomplete="false"
+                            />
+                            <v-text-field
+                                label="Password"
+                                outlined
+                                dense
+                                color="blue"
+                                autocomplete="false"
+                                type="password"
+                            />
+                            <v-text-field
+                                label="Type again your password"
+                                outlined
+                                dense
+                                color="blue"
+                                autocomplete="false"
+                                type="password"
                             />
                             <v-btn color="blue" dark block tile>Sign up</v-btn>
                             </v-col>
@@ -116,9 +131,9 @@
 </template>
 
 <script setup lang="ts">
-import type { AxiosResponse } from 'axios';
 import { login } from '../stores/login'
 import { ref } from 'vue'
+import router from '@/router';
 
 const step = ref<number>(1);
 const usuario = ref<string>('');
@@ -126,7 +141,10 @@ const password = ref<string>('');
 
 const loginUser = async () => {
     console.log("logando como:", usuario.value, password.value)
-    const resp = login({user: usuario.value, secret: password.value})
+    const resp = await login({user: usuario.value, secret: password.value})
+    if (resp == true) {
+        router.push({name: "dashboard"})
+    }
     console.log(resp)
 }
 </script>

@@ -5,9 +5,10 @@ async function login(args: any) {
         const resposta = await post('Usuario/Login', args)
         console.log(resposta)
         if (resposta.status == 200) {
-            console.log("deu tudo certo poga!");
-            return resposta
+            //return resposta
+            return true
         }
+        return false
     } catch (error) {
         console.log(error)
     }

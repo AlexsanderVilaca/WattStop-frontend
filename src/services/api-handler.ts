@@ -2,9 +2,8 @@ import { AxiosError } from "axios";
 import { api } from "@/services/axios-api";
 
 /**
- * @param axios_type 
  * @param api_url URL a fazer o get
- * @param args são os objetos passados através do body
+ * @param args objetos passados através do body
  * @param callbackOnSuccess 
  * @param callbackOnError 
  * @returns 
@@ -36,8 +35,8 @@ async function get(
 
 /**
  * @param api_url URL a fazer o post
- * @param args são os objetos passados através do body
- * @param callbackOnSuccess 
+ * @param args objetos passados através do body
+ * @param callbackOnSuccess
  * @param callbackOnError 
  * @returns 
  */
@@ -78,4 +77,4 @@ function handle_error(axios_error: AxiosError) {
     }
 }
 
-export { get, post, handle_error }
+export { get, post }

@@ -10,7 +10,4 @@ import Login from '../components/Login.vue'
 </template>
 
 <style scoped>
-  /* .v-application .rounded-bl-xl {
-
-  } */
 </style>

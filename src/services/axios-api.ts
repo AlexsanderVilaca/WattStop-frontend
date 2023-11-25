@@ -1,7 +1,7 @@
 import axios, { type AxiosRequestConfig } from "axios"
 
 export const api = axios.create({
-  baseURL: "https://localhost:7090/api/"//"https://localhost:7090/api/"
+  baseURL: "https://api-wattstop.azurewebsites.net/api/" //"https://localhost:7090/api/"
 })
 
 api.interceptors.request.use((request) => {
