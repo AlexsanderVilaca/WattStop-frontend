@@ -140,12 +140,12 @@ const usuario = ref<string>('');
 const password = ref<string>('');
 
 const loginUser = async () => {
-    console.log("logando como:", usuario.value, password.value)
+    //console.log("logando como:", usuario.value, password.value)
     const resp = await login({user: usuario.value, secret: password.value})
     if (resp == true) {
-        router.push({name: "dashboard"})
+        router.push("dashboard")
     }
-    console.log(resp)
+    //console.log(resp)
 }
 </script>
 

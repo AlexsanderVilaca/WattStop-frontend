@@ -1,11 +1,12 @@
 import { get, post } from "@/services/api-handler";
+import { setCookie } from "@/services/cookie-handler"
 
 async function login(args: any) {
     try {
         const resposta = await post('Usuario/Login', args)
-        console.log(resposta)
         if (resposta.status == 200) {
-            //return resposta
+            const token = resposta.data.split(' ')[1];
+            setCookie("WATTSTOP_TOKEN", token);
             return true
         }
         return false
