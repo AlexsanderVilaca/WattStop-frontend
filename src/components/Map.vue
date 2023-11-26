@@ -1,29 +1,29 @@
-<!-- MapComponent.vue -->
 <template>
-    <v-container>
-        <div id="map"></div>
-    </v-container>
+<div>
+    <div id="mapContainer"/>
+</div>
 </template>
-<script lang="ts">
-import { onMounted } from 'vue';
-import 'leaflet/dist/leaflet.css';
-import leaflet from 'leaflet';
+    
+<script setup lang="ts">
+import { onMounted } from 'vue'
+import L from 'leaflet'
 
-const initializeMap = () => {
-    // leaflet.map('map').setView([51.505, -0.09], 13);
-
-    var map = leaflet.map('map').setView([53, 12], 5);
-
-// Style URL format in XYZ PNG format; see our documentation for more options
-    leaflet.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png', {
-    maxZoom: 20,
-    attribution: '&copy; <a href="https://stadiamaps.com/" target="_blank">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/about" target="_blank">OpenStreetMap</a> contributors',
-}).addTo(map);
-
-};
+/* onMouted precisa do async senão ele chama o método antes de
+    renderizar a tela e aí dá pau pq o html que ele "injeta"
+    o mapa ainda não existe
+*/
+onMounted(async () => {
+const map = L.map('mapContainer').setView([-26.8560346, -49.239189], 5)
+    L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+        attribution:
+        '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map)
+})
 </script>
+    
 <style scoped>
-#map {
-    height: 200px; /* Defina a altura conforme necessário */
+#mapContainer {
+    width: 100vw;
+    height: calc(100vh - 50px);
 }
-</style>
+</style>  

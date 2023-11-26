@@ -1,6 +1,4 @@
 <template>
-  
-
   <div id="background"></div>
 <div class="top">
   <h1>404</h1>

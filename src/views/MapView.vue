@@ -1,17 +1,6 @@
 <template>
-    <div>
-        O Mapa
-    </div>
+  <Map/>
 </template>
-<script>
+<script setup lang="ts">
+import Map from '@/components/Map.vue';
 </script>
-
-<style scoped>
-/* @media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-} */
-</style>

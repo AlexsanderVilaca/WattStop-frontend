@@ -17,7 +17,7 @@
         </v-list-item> -->
 
 
-        <v-list-item prepend-icon="mdi-view-dashboard" title="Mapa" value="btnMapa"><v-list-title @click="handleSubmitMapa()"></v-list-title> </v-list-item>
+        <v-list-item prepend-icon="mdi-view-dashboard" title="Mapa" value="btnMapa" @click="handleSubmitMapa()"></v-list-item>
         <v-list-item prepend-icon="mdi-view-dashboard" title="Administração" value="btnAdministracao" @click="handleSubmitAdm()"></v-list-item>
         <v-list-item prepend-icon="mdi-view-dashboard" title="Conta" value="btnConta" @click="handleSubmitConta()"></v-list-item>
         <v-list-item prepend-icon="mdi-view-dashboard" title="Sobre" value="btnSobre" @click="handleSubmitSobre()"></v-list-item>

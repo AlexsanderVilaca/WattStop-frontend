@@ -3,8 +3,9 @@ import HomeView from '../views/HomeView.vue'
 import DashboardView from '../views/DashboardView.vue'
 import LoginView from '../views/LoginView.vue'
 import AboutView from '../views/AboutView.vue'
-import PageNotFoundView from '../views/PageNotFoundView.vue'
 import MapView from '../views/MapView.vue'
+import AdmView from '../views/AdmView.vue'
+import PageNotFoundView from '../views/PageNotFoundView.vue'
 
 const router = createRouter({
   history: createWebHistory(/*import.meta.env.BASE_URL*/),
@@ -28,7 +29,7 @@ const router = createRouter({
         {
           path: '/adm',
           name: 'adm',
-          component: AboutView
+          component: AdmView
         },
         {
           path: '/about',
