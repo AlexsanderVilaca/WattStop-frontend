@@ -1,4 +1,5 @@
 import './assets/main.css'
+import './assets/charging-station.svg'
 import 'vuetify/styles'
 import "leaflet/dist/leaflet.css";
 import 'vuetify/dist/vuetify.min.css'; //estilos do Vuetify
