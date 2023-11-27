@@ -18,7 +18,7 @@ onMounted(async () => {
 const map = L.map('mapContainer').setView([-26.8560346, -49.239189], 5)
     L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', {
         attribution:
-        '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
+        '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors' 
     }).addTo(map)
 
     const pontosRecarga = await getPontosRecarga();
@@ -29,13 +29,14 @@ const map = L.map('mapContainer').setView([-26.8560346, -49.239189], 5)
         console.log(ponto)
 
         const popupContent = 
-            "<h3>" + ponto.empresa.nome + "</h3>" + 
+            "<h2>" + ponto.empresa.nome + "</h2>" + 
             "<p>" + "Tipo Carregador: " + ponto.tipoCarregador + "</p>" +
-            "<p>" + "Contato: " + ponto.empresa.email + "</p>"
+            "<p>" + "Contato: " + ponto.empresa.email + "</p>" +
+            "<p>" + "Contato: " + ponto.empresa.cnpj + "</p>"
 
         L.marker([coordernadas[0],coordernadas[1]])
             .addTo(map)
-            .bindPopup(popupContent);
+            .bindPopup(popupContent);    
     }
 })
 
@@ -43,7 +44,7 @@ const map = L.map('mapContainer').setView([-26.8560346, -49.239189], 5)
     
 <style scoped>
 #mapContainer {
-    width: 100vw;
+    width: inherit;
     height: calc(100vh - 70px); /* height: calc(100vh - 50px); */
 }
 </style>  

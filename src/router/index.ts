@@ -1,14 +1,20 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
 import DashboardView from '../views/DashboardView.vue'
 import LoginView from '../views/LoginView.vue'
 import AboutView from '../views/AboutView.vue'
 import MapView from '../views/MapView.vue'
 import AdmView from '../views/AdmView.vue'
+import AccountView from '../views/AccountView.vue'
 import PageNotFoundView from '../views/PageNotFoundView.vue'
 
 const router = createRouter({
   history: createWebHistory(/*import.meta.env.BASE_URL*/),
+  scrollBehavior() {
+    return {
+      top: 0,
+      behavior: "smooth",
+    }
+  },
   routes: [
     {
       path: '/login',
@@ -32,6 +38,11 @@ const router = createRouter({
           component: AdmView
         },
         {
+          path: '/conta',
+          name: 'conta',
+          component: AccountView
+        },
+        {
           path: '/about',
           name: 'about',
           component: AboutView
@@ -42,17 +53,7 @@ const router = createRouter({
           component: PageNotFoundView
         },
       ]
-    },
-    // {
-    //   path: '/:catchAll(.*)*',
-    //   name: "PageNotFound",
-    //   component: PageNotFoundView
-    // },
-    // {
-    //   path: '/about',
-    //   name: 'about',
-    //   component: AboutView
-    // },
+    }
     // {
     //   path: '/about',
     //   name: 'about',
@@ -63,5 +64,13 @@ const router = createRouter({
     // },
   ]
 })
+
+// router.beforeEach((to, from, next) => {
+//   if(isAuthenticated()) {
+//     next()
+//   } else {
+//     router.push('login')
+//   }
+// })
 
 export default router

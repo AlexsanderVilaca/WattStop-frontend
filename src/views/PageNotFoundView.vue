@@ -25,12 +25,13 @@
   
   <div class="buttons">
     <button onclick="history.back()" class="btn">Voltar</button>
-    <button onclick="window.location.href='/'" class="btn">Home</button>
+    <button onclick="window.location.href='/dashboard'" class="btn">Home</button>
   </div>
 </div>
 
 </template>
-<script lang="ts"></script>
+<script setup lang="ts">
+</script>
 
 <style scoped>
 body {
