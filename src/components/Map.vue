@@ -22,7 +22,7 @@ const map = L.map('mapContainer').setView([-26.8560346, -49.239189], 5)
     }).addTo(map)
 
     const newIcon = L.icon({
-        iconUrl: 'charging-station.svg',
+        iconUrl: './charging-station.svg',
         iconSize:     [38, 38], // size of the icon
         iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
         popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
