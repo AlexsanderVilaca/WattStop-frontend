@@ -3,6 +3,7 @@ import { RouterView } from 'vue-router'
 import { onMounted } from 'vue'
 import router from './router';
 import { isAuthenticated } from '@/stores/user'
+import Notify from './components/Notify.vue';
 
 onMounted(async () => {
   if(isAuthenticated()) {
@@ -14,6 +15,7 @@ onMounted(async () => {
 
 </script>
 <template>
+  <Notify />
 <router-view v-slot="{ Component }">
     <transition name="fade">
       <component :is="Component" />

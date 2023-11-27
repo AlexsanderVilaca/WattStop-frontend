@@ -9,6 +9,11 @@ function isAuthenticated(): boolean {
     }
 }
 
+function isAdministator(): boolean {
+    console.log(getEmpresaId())
+    return getEmpresaId() != undefined
+}
+
 function getUserData() {
     if (isAuthenticated())
         return jwtDecode(getCookie("WATTSTOP_TOKEN")) as any
@@ -22,4 +27,13 @@ const getUserName = () => getUserData() == "" ? "" : getUserData().name
 
 const getUserInitials = () =>  getUserName() == "" ? "" : getUserName().substring(0, 2)
 
-export { isAuthenticated, getUserData, getUserEmail, getUserName, getUserInitials }
+const getEmpresaId = () => getUserData() == "" ? undefined : getUserData().EmpresaId == "" ? undefined : getUserData().EmpresaId
+
+export { 
+    isAuthenticated, 
+    isAdministator,
+    getUserData, 
+    getUserEmail, 
+    getUserName, 
+    getUserInitials,
+}

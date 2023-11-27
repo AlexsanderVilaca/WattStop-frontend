@@ -8,6 +8,9 @@
 import { onMounted } from 'vue'
 import L, { icon } from 'leaflet'
 import { getPontosRecarga } from '@/services/wattstop'
+import "leaflet-routing-machine/dist/leaflet-routing-machine.css"
+import 'leaflet-routing-machine'
+
 
 
 /* onMouted precisa do async senão ele chama o método antes de

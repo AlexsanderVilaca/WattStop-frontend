@@ -1,5 +1,6 @@
 import { AxiosError } from "axios";
 import { api } from "@/services/axios-api";
+import { useSnackbar } from "@/stores/useSnackBar";
 
 /**
  * @param api_url URL a fazer o get
@@ -69,10 +70,13 @@ async function post(
 function handle_error(axios_error: AxiosError) {
     switch(axios_error.response?.status) {
         case 401: /* unauthorized */
+            useSnackbar().error("Senha errada!", 3000);
             break;
         case 440: /* login time-out */
+            useSnackbar().error("Login time-out", 3000);
             break;
         default:
+            useSnackbar().error("Algo deu errado!", 3000);
             break;
     }
 }

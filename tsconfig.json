@@ -10,6 +10,7 @@
   ],
   "compilerOptions": {
     "types": ["vuetify"],
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "verbatimModuleSyntax": false
   }
 }

@@ -21,7 +21,7 @@
 
 
         <v-list-item prepend-icon="mdi-map-search" title="Mapa" value="btnMapa" @click="handleSubmitMapa()"></v-list-item>
-        <v-list-item prepend-icon="mdi-account-supervisor" title="Administração" value="btnAdministracao" @click="handleSubmitAdm()"></v-list-item>
+        <v-list-item v-if="isAdministator()" prepend-icon="mdi-account-supervisor" title="Administração" value="btnAdministracao" @click="handleSubmitAdm()"></v-list-item>
         <v-list-item prepend-icon="mdi-account" title="Conta" value="btnConta" @click="handleSubmitConta()"></v-list-item>
         <v-list-item prepend-icon="mdi-information" title="Sobre" value="btnSobre" @click="handleSubmitSobre()"></v-list-item>
       </v-list>
@@ -79,9 +79,9 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import router from '@/router';
-import { getUserName } from '@/stores/user';
-import { getUserInitials } from '@/stores/user';
-import { deleteCookie } from '@/services/cookie-handler';
+import { getUserName, getUserInitials, isAdministator } from '@/stores/user';
+import { deleteCookie, getCookie } from '@/services/cookie-handler';
+import { useSnackbar } from '@/stores/useSnackBar';
 
 const drawerState = ref(true)
 
@@ -104,8 +104,12 @@ const handleSubmitSobre = () => {
 }
 
 const handleSubmitLogoff = () => {
-  deleteCookie("WATTSTOP_TOKEN");
-  router.push('login');
+  useSnackbar().info("Saindo em 3 segundos", 3000)
+  setTimeout(() => {
+    deleteCookie("WATTSTOP_TOKEN");
+    router.push('login');
+  }, 3000);
+  
 }
 
 const rotas = [
