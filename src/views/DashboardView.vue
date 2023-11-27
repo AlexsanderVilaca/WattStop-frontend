@@ -23,7 +23,7 @@
         <v-list-item prepend-icon="mdi-map-search" title="Mapa" value="btnMapa" @click="handleSubmitMapa()"></v-list-item>
         <v-list-item prepend-icon="mdi-account-supervisor" title="Administração" value="btnAdministracao" @click="handleSubmitAdm()"></v-list-item>
         <v-list-item prepend-icon="mdi-account" title="Conta" value="btnConta" @click="handleSubmitConta()"></v-list-item>
-        <v-list-item prepend-icon="mdi-view-dashboard" title="Sobre" value="btnSobre" @click="handleSubmitSobre()"></v-list-item>
+        <v-list-item prepend-icon="mdi-information" title="Sobre" value="btnSobre" @click="handleSubmitSobre()"></v-list-item>
       </v-list>
 
       

@@ -1,8 +1,8 @@
 import './assets/main.css'
 import 'vuetify/styles'
 import "leaflet/dist/leaflet.css";
-import 'vuetify/dist/vuetify.min.css'; // Importe os estilos do Vuetify
-import '@mdi/font/css/materialdesignicons.css'; // Importe os ícones do Material Design Icons
+import 'vuetify/dist/vuetify.min.css'; //estilos do Vuetify
+import '@mdi/font/css/materialdesignicons.css'; //ícones do Material Design Icons
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import { createVuetify } from 'vuetify'

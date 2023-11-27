@@ -159,12 +159,11 @@ const loginUser = async () => {
     //console.log("logando como:", usuario.value, password.value)
     const resp = await login({user: usuario.value, secret: password.value})
 
-    const resp2 = await getEmpresaById({ params: {empresaId: '56e53ecc-1d2d-440b-afb6-2e25e172513d'} })
+    //const resp2 = await getEmpresaById({ params: {empresaId: '56e53ecc-1d2d-440b-afb6-2e25e172513d'} })
     
     if (resp == true) {
         router.push("dashboard")
     }
-    //console.log(resp)
 }
 </script>
 

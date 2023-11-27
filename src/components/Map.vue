@@ -6,7 +6,7 @@
     
 <script setup lang="ts">
 import { onMounted } from 'vue'
-import L from 'leaflet'
+import L, { icon } from 'leaflet'
 import { getPontosRecarga } from '@/services/wattstop'
 
 
@@ -21,6 +21,13 @@ const map = L.map('mapContainer').setView([-26.8560346, -49.239189], 5)
         '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors' 
     }).addTo(map)
 
+    const newIcon = L.icon({
+        iconUrl: 'src/assets/charging-station.png',
+        iconSize:     [38, 38], // size of the icon
+        iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+        popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+    })
+
     const pontosRecarga = await getPontosRecarga();
 
     for (let ponto of pontosRecarga) {
@@ -34,7 +41,7 @@ const map = L.map('mapContainer').setView([-26.8560346, -49.239189], 5)
             "<p>" + "Contato: " + ponto.empresa.email + "</p>" +
             "<p>" + "Contato: " + ponto.empresa.cnpj + "</p>"
 
-        L.marker([coordernadas[0],coordernadas[1]])
+        L.marker([coordernadas[0],coordernadas[1]], {icon: newIcon})
             .addTo(map)
             .bindPopup(popupContent);    
     }
